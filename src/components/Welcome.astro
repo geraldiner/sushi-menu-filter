@@ -1,19 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+import SushiRollFilter from "./SushiRollFilter.svelte";
 
 const sushiRolls = await getCollection("sushiRolls");
 ---
 
-<div id="container">
-  <main>
-    <h1>Hello, World!</h1>
-    <ul>
-      {
-        sushiRolls.map((sushiRoll) => {
-          return <li>{sushiRoll.data.name}</li>;
-        })
-      }
-    </ul>
-  </main>
-</div>
-
+<SushiRollFilter client:load {sushiRolls} />

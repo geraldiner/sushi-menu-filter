@@ -72,18 +72,6 @@
     "hasfruit": false
   },
   {
-    "id": "bagel",
-    "name": "Bagel",
-    "numberOfPieces": 8,
-    "description": "Salmon, cream cheese and avocado, crispy Tempura style and topped with Eel Sauce.",
-    "imageUri": "hhttps://www.sushiiwa.org/assets/img/sushi/BAGEL.jpg",
-    "protein": ["salmon"],
-    "hasAvocado": true,
-    "hasCheese": false,
-    "hasCreamCheese": true,
-    "hasfruit": false
-  },
-  {
     "id": "blue",
     "name": "Blue",
     "numberOfPieces": 8,
