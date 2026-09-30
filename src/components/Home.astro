@@ -1,0 +1,8 @@
+---
+import { getCollection } from "astro:content";
+import SushiRollFilter from "./SushiRollFilter.svelte";
+
+const sushiRolls = await getCollection("sushiRolls");
+---
+
+<SushiRollFilter client:load {sushiRolls} />
