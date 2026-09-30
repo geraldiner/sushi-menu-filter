@@ -3,6 +3,7 @@
 
   let selectedProteins = new Set();
   let excludedIngredients = new Set();
+  let filtersOpen = false;
 
   $: filteredRolls = sushiRolls.filter((roll) => {
     const hasSelectedProtein =
@@ -45,9 +46,25 @@
   }
 </script>
 
-<div class="filter-container">
-  <div class="filters">
+<div class="menu">
+  <header class="menu-header">
     <h2>Sushi Rolls ({filteredRolls.length})</h2>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label={filtersOpen ? "Close filters" : "Open filters"}
+      aria-expanded={filtersOpen}
+      aria-controls="sushi-filters"
+      on:click={() => (filtersOpen = !filtersOpen)}
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="filter-container">
+    <div class="filters" class:open={filtersOpen} id="sushi-filters">
     <div class="filter-group">
       <h3>Filter by Protein</h3>
       <div class="checkboxes">
@@ -101,31 +118,54 @@
         </label>
       </div>
     </div>
-  </div>
+    </div>
 
-  <div class="results">
-    <div class="rolls-grid">
-      {#each filteredRolls as roll}
-        <div class="roll-card">
-          <img src={roll.data.imageUri} alt={roll.data.name} />
-          <h4>{roll.data.name}</h4>
-          <p class="pieces">{roll.data.numberOfPieces} pieces</p>
-          <p class="description">{roll.data.description}</p>
-          <p class="proteins">
-            <strong>Proteins:</strong>
-            {#if roll.data.protein.length > 0}
-              {roll.data.protein.join(", ")}
-            {:else}
-              Vegetarian
-            {/if}
-          </p>
-        </div>
-      {/each}
+    <div class="results">
+      <div class="rolls-grid">
+        {#each filteredRolls as roll}
+          <div class="roll-card">
+            <img src={roll.data.imageUri} alt={roll.data.name} />
+            <h4>{roll.data.name}</h4>
+            <p class="pieces">{roll.data.numberOfPieces} pieces</p>
+            <p class="description">{roll.data.description}</p>
+            <p class="proteins">
+              <strong>Proteins:</strong>
+              {#if roll.data.protein.length > 0}
+                {roll.data.protein.join(", ")}
+              {:else}
+                Vegetarian
+              {/if}
+            </p>
+          </div>
+        {/each}
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+  .menu {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem 0;
+  }
+
+  .menu-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
   .filter-container {
     display: flex;
     gap: 2rem;
@@ -263,6 +303,34 @@
   }
 
   @media (max-width: 768px) {
+    .menu-header {
+      padding: 1rem 1rem 0;
+    }
+
+    .menu-header h2 {
+      font-size: 1.25rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 2px;
+      background: #333;
+    }
+
     .filter-container {
       flex-direction: column;
       gap: 1rem;
@@ -272,10 +340,14 @@
     .filters {
       flex: 1;
       position: static;
-      display: grid;
+      display: none;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
       height: auto;
+    }
+
+    .filters.open {
+      display: grid;
     }
 
     .filter-group {
@@ -286,16 +358,20 @@
       grid-template-columns: 1fr;
     }
 
-    .results h2 {
-      font-size: 1.25rem;
-    }
-
     .roll-card img {
       height: 200px;
     }
   }
 
   @media (max-width: 480px) {
+    .menu-header {
+      padding: 0.75rem 0.75rem 0;
+    }
+
+    .menu-header h2 {
+      font-size: 1.1rem;
+    }
+
     .filter-container {
       padding: 0.75rem;
       gap: 0.75rem;
@@ -312,11 +388,6 @@
 
     label {
       font-size: 0.9rem;
-    }
-
-    .results h2 {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
     }
 
     .roll-card h4 {
