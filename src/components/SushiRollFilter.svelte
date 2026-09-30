@@ -47,6 +47,7 @@
 
 <div class="filter-container">
   <div class="filters">
+    <h2>Sushi Rolls ({filteredRolls.length})</h2>
     <div class="filter-group">
       <h3>Filter by Protein</h3>
       <div class="checkboxes">
@@ -103,7 +104,6 @@
   </div>
 
   <div class="results">
-    <h2>Sushi Rolls ({filteredRolls.length})</h2>
     <div class="rolls-grid">
       {#each filteredRolls as roll}
         <div class="roll-card">

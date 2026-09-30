@@ -64,7 +64,7 @@
     "name": "Bagel",
     "numberOfPieces": 8,
     "description": "Salmon, cream cheese and avocado, crispy Tempura style and topped with Eel Sauce.",
-    "imageUri": "hhttps://www.sushiiwa.org/assets/img/sushi/BAGEL.jpg",
+    "imageUri": "https://www.sushiiwa.org/assets/img/sushi/BAGEL.jpg",
     "protein": ["salmon"],
     "hasAvocado": true,
     "hasCheese": false,
