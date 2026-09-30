@@ -37,6 +37,11 @@
     excludedIngredients = excludedIngredients;
   }
 
+  function clearFilters() {
+    selectedProteins = new Set();
+    excludedIngredients = new Set();
+  }
+
   function getAllProteins() {
     const proteins = new Set();
     sushiRolls.forEach((roll) => {
@@ -65,6 +70,14 @@
 
   <div class="filter-container">
     <div class="filters" class:open={filtersOpen} id="sushi-filters">
+    <button
+      class="clear-filters"
+      type="button"
+      disabled={selectedProteins.size === 0 && excludedIngredients.size === 0}
+      on:click={clearFilters}
+    >
+      Clear all filters
+    </button>
     <div class="filter-group">
       <h3>Filter by Protein</h3>
       <div class="checkboxes">
@@ -150,10 +163,15 @@
   }
 
   .menu-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 2rem 0;
+    padding: 1rem 3rem;
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
   }
 
   .menu-header h2 {
@@ -181,7 +199,34 @@
     border-radius: 8px;
     height: fit-content;
     position: sticky;
-    top: 1rem;
+    top: 5rem;
+  }
+
+  .clear-filters {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    background: white;
+    color: #b71c1c;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .clear-filters:disabled {
+    border-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+  .clear-filters:not(:disabled):hover {
+    background: #fff5f5;
+  }
+
+  .clear-filters:focus-visible {
+    outline: 2px solid #d32f2f;
+    outline-offset: 2px;
   }
 
   .filter-group {
@@ -346,6 +391,11 @@
       height: auto;
     }
 
+    .clear-filters {
+      grid-column: 1 / -1;
+      margin-bottom: 0;
+    }
+
     .filters.open {
       display: grid;
     }
@@ -365,7 +415,7 @@
 
   @media (max-width: 480px) {
     .menu-header {
-      padding: 0.75rem 0.75rem 0;
+      padding: 0.75rem 0.75rem;
     }
 
     .menu-header h2 {
