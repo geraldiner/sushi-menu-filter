@@ -98,33 +98,16 @@ This was my first foray into using agents to write out an application. This proj
 
 This was my first foray into using agents to write an application. The project is relatively small and straightforward, so Copilot did well with the implementation. However, it didn’t feel great to hand off the Svelte portion when Svelte is still new to me. In hindsight, I would have preferred to implement that part myself so I could use the project as an opportunity to learn the framework.
 
-## 🚀 Other Projects
-
-Check out other stuff I've worked on:
-
-**Sushi Menu Filter**: https://github.com/geraldiner/sushi-menu-filter
-
-**Reuben Sandwiches**: https://github.com/geraldiner/reuben-sandwiches
-
-**Animal Crossing API**: https://github.com/geraldiner/ac-api
-
-## 🤙 Let's connect
-
-- Website: [geraldiner.com](https://geraldiner.com)
-- Resume: [Geraldine R](https://geraldiner.com/GeraldineRagsac_Resume.pdf)
-- LinkedIn: [in/geraldiner](https://linkedin.com/in/geraldiner)
-- Sometimes I write: [@geraldiner](https://geraldiner.hashnode.dev)
-- For crochet work: [@geraldinedesu](https://instagram.com/geraldinedesu)
 
 ## 🚀 Other Projects
 
 Check out other stuff I've worked on:
 
-**Sushi Menu Filter**: https://github.com/geraldiner/sushi-menu-filter
-
-**Reuben Sandwiches**: https://github.com/geraldiner/reuben-sandwiches
+**Min To Win**: https://github.com/geraldiner/min-to-win
 
 **Animal Crossing API**: https://github.com/geraldiner/ac-api
+
+**Reuben Sandwiches**: https://github.com/geraldiner/reuben-sandwiches
 
 ## 🤙 Let's connect
 
