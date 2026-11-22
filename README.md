@@ -97,8 +97,6 @@ I chose GitHub Pages because this is a static site and I just needed a simple pl
 This was my first foray into using agents to write out an application. This project is pretty small and not too complex, so it did well. But I will say, it didn’t feel good to hand off the Svelte portion to Copilot when I’m not very familiar with it myself yet. I wish I’d done it myself, at least while Svelte is still so new to me.
 
 This was my first foray into using agents to write an application. The project is relatively small and straightforward, so Copilot did well with the implementation. However, it didn’t feel great to hand off the Svelte portion when Svelte is still new to me. In hindsight, I would have preferred to implement that part myself so I could use the project as an opportunity to learn the framework.
-
-
 ## 🚀 Other Projects
 
 Check out other stuff I've worked on:
